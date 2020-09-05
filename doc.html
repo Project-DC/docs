@@ -307,48 +307,137 @@
 
         <section class="js-section">
 
-          <h3 class="section__title">Variables</h3>
-            <h4 class="section__title">Declaration</h4>
-              <p>simC code:</p>
-              <pre class="code code--block">
-              <code>
-              var a
-              </code>
-              </pre>
-              <p>C code:</p>
-              <pre class="code code--block">
-              <code>
-              not_known a;
-              </code>
-              </pre>
-              <p><strong><u>Note</u></strong>: simC is a dynamically typed syntax for C so variable declarations do not require explicit mention of types.</p>
-              <p><strong><u>Note</u></strong>: Identifiers cannot be named after a C keyword.</p>
-            <h4 class="section__title">Initialization</h4>
-              <p>simC code:</p>
-              <pre class="code code--block">
-              <code>
-              var a = 2
-              </code>
-              </pre>
-              <p>C code:</p>
-              <pre class="code code--block">
-              <code>
-              int a = 2;
-              </code>
-              </pre>
-            <h4 class="section__title">Assignment</h4>
-              <p>simC code:</p>
-              <pre class="code code--block">
-              <code>
-              a = 2
-              </code>
-              </pre>
-              <p>C code:</p>
-              <pre class="code code--block">
-              <code>
-              a = 2;
-              </code>
-              </pre>
+          <h3 class="section__title">Classes</h3>
+          
+          <ol>
+
+            <li>
+
+              <h4 class="section__title">PrimaVita()</h4>
+              <p style="text-align: justify;">The class for our first environment which includes a single species called Prima vita (First life). This is exposed in the front end API from where user can instantiate this class to train their model.</p>
+              <p style="text-align: justify;">The following are the hyperparameters which can be set for this class:-</p>
+
+              <table id="customers">
+
+                <tr>
+                  <th>S.No</th>
+                  <th>Hyperparameter</th>
+                  <th>Default Value</th>
+                  <th>Description</th>
+                </tr>
+
+                <tr>
+                  <td>01</td>
+                  <td>initial_population</td>
+                  <td>10</td>
+                  <td>This is the count of agents which will be present when training is started. These people will be born at time step 0.</td>
+                </tr>
+
+                <tr>
+                  <td>02</td>
+                  <td>state_size</td>
+                  <td>21</td>
+                  <td>The size to which the state of an agent is to be padded, if the size of state increases then it will be removed, or if the size of the state for an agent is less than state_size then it will be padded with zeros to this length, otherwise if it is equal to state size then the state remains the same. State is what the agent perceives in its environment (state in our environment is distance vectors to food particles and other agents followed by current energy of an agent, it tells the agent how close it is to another agent or food particle and what is its current energy). The padding length will be 1 less than what is mentioned so as to accomodate the single value - energy. So, the default value of 21 will pad the vectors to 20 length after which energy is appended.</td>
+                </tr>
+
+                <tr>
+                  <td>03</td>
+                  <td>initial_energy</td>
+                  <td>200</td>
+                  <td>The energy with which each player/agent is born. This value will be same for all the agents across various generations and irrespective of how the agent was born or who his/her parent(s) were.</td>
+                </tr>
+
+                <tr>
+                  <td>04</td>
+                  <td>model_updates</td>
+                  <td>10</td>
+                  <td>Number of time step (in ticks) after which the neural network model for all the agents who are currently alive is updated. Here updation means backpropagation through the neural network which the agent uses for predicting action given a state as input.</td>
+                </tr>
+
+                <tr>
+                  <td>05</td>
+                  <td>speed</td>
+                  <td>3</td>
+                  <td>The speed with which an agent moves in a the environment or in simpler terms the number of pixels an agent moves after taking a single step. The default value of 3 means that the agent will move 3 pixels in each of the 8 direction if it takes a step in any of these directions.</td>
+                </tr>
+
+                <tr>
+                  <td>06</td>
+                  <td>max_age</td>
+                  <td>90</td>
+                  <td>The maximum age (in ticks) to which an agent can live, once an agent reaches this agent he/she dies of old age.</td>
+                </tr>
+
+                <tr>
+                  <td>07</td>
+                  <td>max_allowed_population</td>
+                  <td>100</td>
+                  <td>The maximum number of agents that can reside at once inside the environment, once crossed agents will be killed randomly using two different strategies. If however the value passed to this hyperparameter is -1 then there would not be a max cap on number of agents residing at one point. Though there is an option to have uncontrolled number of agents at once, we do not recommend this for best results.</td>
+                </tr>
+
+                <tr>
+                  <td>08</td>
+                  <td>kill_type</td>
+                  <td>"difference"</td>
+                  <td>The strategy to use while killing of people randomly after the environment has reached its max cap of population (if there is any). We offer two types of killing - (i) difference method where the number of people killed after max cap is reached is the increased population - max allowed population, which in a way equalizes the value of population at each time step to max allowed population, and (ii) random method where the number of people killed after max cap is chosen randomly. Note:- the values allowed for this hyperparameter are the strings - "difference" and "random" only.</td>
+                </tr>
+
+                <tr>
+                  <td>09</td>
+                  <td>sensory_radius</td>
+                  <td>100</td>
+                  <td>The radius inside which an agent can sense things. So, the default value of 100 means an agent can sense food particles and other agents within a 100 px radius.</td>
+                </tr>
+
+                <tr>
+                  <td>10</td>
+                  <td>decay_rate</td>
+                  <td>23</td>
+                  <td>The rate at which reward decays from initial -4 to a max of -1 when the agent chooses to stay at one place. The default value of 23 means after every 23 ticks of time the reward given to agent for choosing the stay action will increase by 1. A reward is a way for the environment to tell the agent whether the action taken was good or bad.</td>
+                </tr>
+
+              </table>
+
+              <p style="text-align: justify;">All of these hyperparameters are set using the params_dic parameter of the PrimaVita initializer which takes in as input a dictionary with key value mappings of hyperparameter names and corresponding values.</p>
+              <p style="text-align: justify;">Apart from these hyperparameters we have certain parameters for the PrimaVita initializer which you can set:-</p>
+
+              <table id="customers">
+
+                <tr>
+                  <th>S.No</th>
+                  <th>Parameter</th>
+                  <th>Default Value </th>
+                  <th>Description</th>
+                  <th>Usage</th>
+                </tr>
+
+                <tr>
+                  <td>01</td>
+                  <td>mode</td>
+                  <td>'bot'</td>
+                  <td>The mode in which the training should proceed. There are only two options for this parameter (both are strings) - "bot" and "human". "bot" mode is when you do not want the pygame visualizer to start during training, which is recommended as the pygame visualizer slows down training. "human" mode is when you want to see the visualizer even during training.</td>
+                  <td>Pass as parameter to PrimaVita class. e.g. model = PrimaVita(mode='bot')</td>
+                </tr>
+
+                <tr>
+                  <td>02</td>
+                  <td>log_dir_info</td>
+                  <td>None</td>
+                  <td>This is what gets appended to the name of the log directory Players_Data. The default value of None generates log directory with timestamp (at the beginning of training) after Players_Data. This is used by the hypertune package to generate meaningful log directory names containing the name of hyperparameter and its value. </td>
+                  <td>Pass as parameter to PrimaVita class. e.g. model = PrimaVita(log_dir_info='my_train')</td>
+                </tr>
+
+              </table>
+
+            </li>
+
+            <li>
+
+              <h4 class="section__title">PrimaVita()</h4>
+
+            </li>
+
+          </ol>
 
         </section>
 

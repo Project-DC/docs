@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>pygeneses - Documentation</title>
+    <title>PyGeneses - Documentation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="scribbler-global.css">
@@ -17,7 +17,7 @@
 
     <nav class="header">
 
-      <h1 class="logo">pygeneses <span class="logo__thin">Docs</span></h1>
+      <h1 class="logo">PyGeneses</h1>
       <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
         <li class="menu__item"><a href="https://github.com/Project-DC/pygeneses" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
@@ -32,9 +32,9 @@
 
         <ul>
           <li class="js-btn selected">Introduction</li>
-          <li class="js-btn">UseCases</li>
+          <li class="js-btn">Use cases</li>
           <li class="js-btn">Installation</li>
-          <li class="js-btn">About Packages</li>
+          <li class="js-btn">About packages</li>
           <li class="js-btn">Examples</li>
           <li class="js-btn">Classes</li>
         </ul>
@@ -47,29 +47,66 @@
 
           <h3 class="section__title">Introduction</h3>
 
+          <p style="text-align: justify;">PyGeneses is a PyTorch based Deep Reinforcement Learning framework
+            that helps users to simulate artificial agents in bio-inspired environments. The framework
+            provides in-built Deep RL algorithms and visualization of results from training in an interactive
+            dashboard. The environments are a simplified abstraction of our real world, agents are put into this
+            world and are allowed to interact with each other and the environment. PyGeneses has been
+            recently open sourced under GNU GPL v3.</p>
+
+          <p style="text-align: justify;">The power of PyGeneses is its clean and simple API which:</p>
+
+          <ol>
+            <li>
+              <p style="text-align: justify;">Allows a user to run own simulation even if they have no knowledge
+                about RL or DL.</p>
+            </li>
+            <li>
+              <p style="text-align: justify;">Allows a user with experience in Deep RL to tweak the model
+                and parameters extensively.</p>
+            </li>
+          </ol>
+
+          <p style="text-align: justify;">What’s exciting about PyGeneses you ask, well, PyGeneses lets you
+            create a working simulation by writing as little as 2 lines without any prerequisite knowledge
+            whatsoever!! PyGeneses also provides tools that will help you visualize the results with minimal
+            effort. So what are you waiting for, install PyGeneses today and become the god of your creation.</p>
+
         </section>
 
         <section class="js-section">
 
-          <h3 class="section__title">UseCases</h3>
+          <h3 class="section__title">Use cases</h3>
 
           <ol>
 
             <li>
               <p style="text-align: justify;">
-                pygeneses can be used for researching the various possible behaviours and trends by the artificial agents. The artificial conditions programmatically provided to study their behaviour show the results which can parallelly be compared to those of the real world conditions as the provided conditions are kept as close as possible in accordance with that of the natural laws.
+                PyGeneses can be used for researching the various possible behaviours and
+                trends by artificial agents. The artificial conditions programmatically provided
+                to study their behaviour shows the result which can parallelly be compared to those of
+                the real world conditions as the provided conditions are kept as close as possible in
+                accordance with that of the natural laws.
               </p>
             </li>
             <li>
-              <p style="text-align: justify;">pygeneses is a tool to simulate a very primitive life. It can be used to train, study and analyse a complex artificial species as well but with more parameters and a more complex structure for the training model.
+              <p style="text-align: justify;">PyGeneses is a tool to simulate a very primitive life.
+                It can be used to train, study and analyse a complex artificial species as well but with more
+                parameters and a more complex structure for the training model.
               </p>
             </li>
             <li>
-              <p style="text-align: justify;">pygeneses has been equipped with features to analyse the step by step behavior of the agent which is under observation while it gets trained in the model. This helps in understanding the reasons behind the agent’s particular behavior in the given circumstances and conditions.
+              <p style="text-align: justify;">PyGeneses has been equipped with a dashboard to analyse the
+                step by step behavior of the agent which is under observation after it gets trained in
+                the model. This helps in understanding the reasons behind the agent’s particular behavior
+                in the given circumstances and conditions.
               </p>
             </li>
             <li>
-              <p style="text-align: justify;">pygeneses can always be modified and updated to accumulate the new conditions and circumstances which could then be included and then the agent’s behaviors could be observed under those conditions as well along with the old conditions to analyse the behavior changes.
+              <p style="text-align: justify;">PyGeneses can always be modified and updated to accumulate
+                the new conditions and circumstances which could be included in the framework and then the
+                agent’s behaviors could be observed under those conditions as well along with the old
+                conditions to analyse the behavior changes.
               </p>
             </li>
 
@@ -84,7 +121,7 @@
           <p style="text-align: justify;">PyGeneses can be installed using pip in either your local system or a cloud based platform. The steps for installation will be the same for both cloud and own systems.</p>
           <pre class="code code__block">
             <code>
-              user@programmer:~$ pip install git+https://github.com/Project-DC/pygeneses
+  user@programmer:~$ pip install git+https://github.com/Project-DC/pygeneses
             </code>
           </pre>
           <p style="text-align: justify;">VitaBoard is an interactive dashboard for visualization of training results in PyGeneses which helps make sense of the actions taken by agents during training and studying their behaviour. To run VitaBoard follow these steps:-</p>
@@ -93,8 +130,9 @@
               <p style="text-align: justify;">Open a python script and type the following:-</p>
               <pre class="code code__block">
                 <code>
-                  from pygeneses.vitaboard import run_board
-	                run_board()
+  from pygeneses.vitaboard import run_board
+
+  run_board()
                 </code>
               </pre>
             </li>
@@ -106,9 +144,9 @@
 
         <section class="js-section">
 
-          <h3 class="section__title">About Packages</h3>
+          <h3 class="section__title">About packages</h3>
 
-          <p style="text-align: justify;">As of version 0.1.3, the architecture of pygeneses is built around 4 major modules. Each of these modules provides a unique feature or functionality to the framework. So let’s get started with a brief introduction to each of them.</p>
+          <p style="text-align: justify;">As of version 0.1.3, the architecture of PyGeneses is built around 4 major modules. Each of these modules provides a unique feature or functionality to the framework. So let’s get started with a brief introduction to each of them.</p>
 
           <ol>
 
@@ -134,13 +172,13 @@
             </li>
 
           </ol>
-            
+
         </section>
 
         <section class="js-section">
 
           <h3 class="section__title">Examples</h3>
-          
+
           <ol>
 
             <li>
@@ -198,7 +236,7 @@
                 </li>
 
               </ol>
-              
+
             </li>
 
             <li>
@@ -258,12 +296,12 @@
         <section class="js-section">
 
           <h3 class="section__title">Classes</h3>
-          
+
           <ol>
 
             <li>
 
-              <h4 class="section__title">PrimaVita()</h4>
+              <h4 class="section__title" id="primavita">PrimaVita()</h4>
               <p style="text-align: justify;">The class for our first environment which includes a single species called Prima vita (First life). This is exposed in the front end API from where user can instantiate this class to train their model.</p>
               <p style="text-align: justify;">The following are the hyperparameters which can be set for this class:-</p>
 

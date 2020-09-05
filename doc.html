@@ -433,7 +433,61 @@
 
             <li>
 
-              <h4 class="section__title">PrimaVita()</h4>
+              <h4 class="section__title">HyperTuner()</h4>
+              <p style="text-align: justify;">The class for testing different combinations of hyperparameters and selecting the one which best fits the behaviour you wanted to explore in the agents. This offers two searching methods - grid search and randomized search.</p>
+              <p style="text-align: justify;">The following parameters can be set for this class’ objects:-</p>
+
+              <table id="customers">
+
+                <tr>
+                  <th>S.No</th>
+                  <th>Parameter</th>
+                  <th>Description</th>
+                  <th>Optional/Mandatory</th>
+                  <th>Default Value</th>
+                </tr>
+
+                <tr>
+                  <td>01</td>
+                  <td>model_class</td>
+                  <td>The name of environment class to test the different hyperparameter values for. For now we only have a single environment - PrimaVita.</td>
+                  <td>Mandatory</td>
+                  <td>N/A</td>
+                </tr>
+
+                <tr>
+                  <td>02</td>
+                  <td>hyperparameters</td>
+                  <td>The name of hyperparameters to be tested passed as a python list.</td>
+                  <td>Mandatory</td>
+                  <td>N/A</td>
+                </tr>
+
+                <tr>
+                  <td>03</td>
+                  <td>values</td>
+                  <td>Values of the hyperparameters to be tested passed sequentially (following the order in which they appear in hyperparameters list). This will be a 2D python list.</td>
+                  <td>Mandatory</td>
+                  <td>N/A</td>
+                </tr>
+
+                <tr>
+                  <td>04</td>
+                  <td>stop_at</td>
+                  <td>Number of logs to be generated after which training will stop, if this is not mentioned the training will continue infinitely.</td>
+                  <td>Mandatory</td>
+                  <td>N/A</td>
+                </tr>
+
+                <tr>
+                  <td>05</td>
+                  <td>randomize_percent</td>
+                  <td>Setting this parameter converts the grid search into randomized search and the value (between 0 and 1) is the percentage of combinations that is chosen randomly for training models.</td>
+                  <td>Optional</td>
+                  <td>1</td>
+                </tr>
+
+              </table>
 
             </li>
 

@@ -46,71 +46,12 @@
         <section class="js-section">
 
           <h3 class="section__title">Introduction</h3>
-          <!-- <h4 class="section__title">What is simC?</h4>
-          <p style="text-align: justify;">
-              Often people have trouble programming in C (especially beginners) due to its low level syntax and
-              unavailability of stable third party libraries. We present sim-C a high-level front end for C
-              which creates a dynamically typed syntax for C. User can write code in this high level syntax and
-              then compile it to optimized C code. sim-C does not process the code and simply translates it to
-              C thus, there is no possibility of the code running slowly. So, with sim-C users can write code
-              faster using the high level syntax and at the same time be able to harness the power and speed of a
-              C program. Let us make C cool again.
-          </p>
-
-          <h4 class="section__title">Pipeline</h4>
-          <img style="display: block; margin: 0 auto;" src="images/simc-pipeline.png" alt="Not found">
-
-          <h4 class="section__title">Steps to run</h4>
-          <ul>
-            <li><p>Open any text editor of choice</p></li>
-            <li><p>Write code using simC high-level syntax</p></li>
-            <li><p>Run the file using simC compiler:</p>
-              <pre class="code code--block">
-                <code>
-                    $ simc test.simc
-                </code>
-              </pre>
-            </li>
-            <li><p>C code file is generated with the same name as the simc file, but with extension .c</p></li>
-          </ul> -->
 
         </section>
 
         <section class="js-section">
 
           <h3 class="section__title">UseCases</h3>
-            <!-- <table id="customers">
-            <tr>
-              <th>Operator</th>
-              <th>simC</th>
-              <th>C</th>
-            </tr>
-            <tr>
-              <td>+ (Addition)</td>
-              <td>1 + 2</td>
-              <td>1 + 2</td>
-            </tr>
-            <tr>
-              <td>- (Subtraction)</td>
-              <td>1 - 2</td>
-              <td>1 - 2</td>
-            </tr>
-            <tr>
-              <td>* (Multiplication)</td>
-              <td>1 * 2</td>
-              <td>1 * 2</td>
-            </tr>
-            <tr>
-              <td>/ (Division)</td>
-              <td>1 / 2</td>
-              <td>1 / 2</td>
-            </tr>
-            <tr>
-              <td>% (Modulus)</td>
-              <td>1 % 2</td>
-              <td>1 % 2</td>
-            </tr>
-          </table> -->
 
           <ol>
 
@@ -138,19 +79,28 @@
 
         <section class="js-section">
 
-          <h3 class="section__title">Strings</h3>
-            <p>simC code:</p>
-            <pre class="code code--block">
+          <h3 class="section__title">Installation</h3>
+
+          <p style="text-align: justify;">PyGeneses can be installed using pip in either your local system or a cloud based platform. The steps for installation will be the same for both cloud and own systems.</p>
+          <pre class="code code__block">
             <code>
-            var a = "Hello"
+              user@programmer:~$ pip install git+https://github.com/Project-DC/pygeneses
             </code>
-            </pre>
-            <p>C code:</p>
-            <pre class="code code--block">
-            <code>
-            char* a = "Hello";
-            </code>
-            </pre>
+          </pre>
+          <p style="text-align: justify;">VitaBoard is an interactive dashboard for visualization of training results in PyGeneses which helps make sense of the actions taken by agents during training and studying their behaviour. To run VitaBoard follow these steps:-</p>
+          <ol>
+            <li>
+              <p style="text-align: justify;">Open a python script and type the following:-</p>
+              <pre class="code code__block">
+                <code>
+                  from pygeneses.vitaboard import run_board
+	                run_board()
+                </code>
+              </pre>
+            </li>
+            <li>Run the python script</li>
+            <li>Open a browser and type:- localhost:5000</li>
+          </ol>
 
         </section>
 

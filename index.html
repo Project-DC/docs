@@ -28,7 +28,7 @@
     <div class="hero__terminal">
       <pre>
         <!-- Place your demo code here -->
-        <code class="shell-session demo">cimplec ~ $ </code>
+        <code class="shell-session demo">pygeneses ~ $ </code>
       </pre>
     </div>
     <div class="wrapper">
@@ -42,25 +42,13 @@
           </ul>
           <pre class="nohighlight code">
             <code class="tab__pane active mac">
-              $  wget https://github.com/cimplec/sim-c/releases/download/v0.1-alpha/simc-mac-v0.1-alpha<br><br>
-              $ mv simc-mac-v0.1-alpha simc<br><br>
-              $ mv simc /usr/local/bin
+              $  pip install git+https://github.com/Project-DC/pygeneses
             </code>
             <code class="tab__pane linux">
-              $  wget https://github.com/cimplec/sim-c/releases/download/v0.1-alpha/simc-linux-v0.1-alpha<br><br>
-              $ mv simc-linux-v0.1-alpha simc<br><br>
-              $ mv simc /usr/bin
+              $  pip install git+https://github.com/Project-DC/pygeneses
             </code>
             <code class="tab__pane win">
-              <ul>
-                <li>Download <strong>
-                <a style="color: blue;"
-                href="https://github.com/cimplec/sim-c/releases/download/v0.1-alpha/simc-windows-v0.1-alpha.exe">
-                  simC Windows Executable
-                </a></strong></li>
-                <br><br>
-                <li>Add this to PATH, for referenche check this link <strong><a style="color: blue;" href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/" target="_blank">Add to PATH</a></strong>
-              </ul>
+              $  pip install git+https://github.com/Project-DC/pygeneses
             </code>
           </pre>
         </div>
@@ -76,20 +64,21 @@
         <h3 class="section__title">Changelog</h3>
         <div class="changelog__item">
           <div class="changelog__meta">
-            <h4 class="changelog__title">v0.1-alpha</h4>
-            <small class="changelog__date">12/07/2020<br>(DD/MM/YYYY)</small>
+            <h4 class="changelog__title">v0.1-beta</h4>
+            <small class="changelog__date">05/09/2020<br>(DD/MM/YYYY)</small>
           </div>
           <div class="changelog__detail">
             <ul>
-              <li>Alpha release</li>
-              <li>Basic constructs of C added</li>
-              <li>Dynamic typing</li>
+              <li>Beta release</li>
+              <li>Single environment with one species (Prima vita)</li>
+              <li>REINFORCE RL algorithm included</li>
+              <li>Basic visualization tool - VitaBoard</li>
             </ul>
           </div>
         </div>
-        <div class="changelog__callout">
+        <!-- <div class="changelog__callout">
           <a href="#" class="button--secondary">Checkout Full Log</a>
-        </div>
+        </div> -->
       </div>
     </div>
     <footer class="footer">Made with &hearts; for C developers.</footer>

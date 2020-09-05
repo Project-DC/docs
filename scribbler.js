@@ -12,11 +12,14 @@ var getAll = function (selector, scope) {
 // setup typewriter effect in the terminal demo
 if (document.getElementsByClassName('demo').length > 0) {
   var i = 0;
-  var txt = `simc test.simc
-
-  C code generated at ./test.c
+  var txt = `pip install git+https://github.com/Project-DC/pygeneses
+  .
+  .
+  .
+  Installing collected packages: pygeneses
+  Successfully installed pygeneses-0.1-beta
   `;
-  var speed = 60;
+  var speed = 30;
 
   function typeItOut () {
     if (i < txt.length) {

@@ -138,6 +138,24 @@
 
         <section class="js-section">
 
+          <h3 class="section__title">Strings</h3>
+            <p>simC code:</p>
+            <pre class="code code--block">
+            <code>
+            var a = "Hello"
+            </code>
+            </pre>
+            <p>C code:</p>
+            <pre class="code code--block">
+            <code>
+            char* a = "Hello";
+            </code>
+            </pre>
+
+        </section>
+
+        <section class="js-section">
+
           <h3 class="section__title">About Packages</h3>
 
           <p style="text-align: justify;">As of version 0.1.3, the architecture of pygeneses is built around 4 major modules. Each of these modules provides a unique feature or functionality to the framework. So let’s get started with a brief introduction to each of them.</p>
@@ -145,20 +163,24 @@
           <ol>
 
             <li>
-              <h4>envs</h4>
-              <p style="text-align: justify;"></p>
+              <h4 class="section__title">envs</h4>
+              <p style="text-align: justify;">This module allows you to create, configure and tweak the in-built bio-inspired environments. As of now, this only provides a single environment called Prima-Vita (First Life), but there’s more coming soon! This lets you set up the entire environment our species requires in just a few lines of code and provides low level control over the environment.
+              </p>
             </li>
             <li>
-              <h4>models</h4>
-              <p style="text-align: justify;"></p>
+              <h4 class="section__title">models</h4>
+              <p style="text-align: justify;">The ‘models’ module is what allows us to import the neural networks which the species uses to learn what to do. As of now, only the default model implementation is provided, but we will be adding support for custom pluggable networks from v0.2 onwards.
+              </p>
             </li>
             <li>
-              <h4>hypertune</h4>
-              <p style="text-align: justify;"></p>
+              <h4 class="section__title">hypertune</h4>
+              <p style="text-align: justify;">The ‘HyperTune’ package allows us to configure and test out various hyperparameters we can provide for an environment and species. This contains single-hyperparameterized testing, grid search and random search. This allows us to find the best set of hyperparameters to display a type of behavior. This also produces logs which we can study using Vitaboard.
+              </p>
             </li>
             <li>
-              <h4>vitaboard</h4>
-              <p style="text-align: justify;"></p>
+              <h4 class="section__title">vitaboard</h4>
+              <p style="text-align: justify;">Vitaboard provides an advanced,interactive web-app to study agents during the training phase. After each agent dies, his actions are written into a log file. And vitaboard allows us to visualize the agents life. It provides us with a life visualizer, group statistics and a genetic history visualizer. It allows us to identify and understand behaviours exhibited by an agent while interacting with the environment or with other agents in the environment.
+              </p>
             </li>
 
           </ol>
@@ -167,24 +189,119 @@
 
         <section class="js-section">
 
-          <h3 class="section__title">Logical Operators</h3>
-            <table id="customers">
-            <tr>
-              <th>Operator</th>
-              <th>simC</th>
-              <th>C</th>
-            </tr>
-            <tr>
-              <td>&& (and)</td>
-              <td>1 and 2</td>
-              <td>1 && 2</td>
-            </tr>
-            <tr>
-              <td>|| (or)</td>
-              <td>1 or 2</td>
-              <td>1 || 2</td>
-            </tr>
-          </table>
+          <h3 class="section__title">Examples</h3>
+          
+          <ol>
+
+            <li>
+
+              <h4 class="section__title">Basic Mode Training</h4>
+              <p style="text-align: justify;">With PyGeneses installed, let’s write some code to train the PrimaVita agents.</p>
+
+              <ol style="list-style-type: lower-alpha;">
+
+                <li>
+
+                  <h5 class="section__title">Example 1</h5>
+                  <p style="text-align: justify;"><strong><em>Note:</em></strong> Default Hyperparameter setting and REINFORCE algorithm</p>
+                  <pre class="code code--block">
+                    <code>
+                        from pygeneses.envs.prima_vita import PrimaVita
+                        rl_model = PrimaVita()
+                        rl_model.run()
+                    </code>
+                  </pre>
+                  <p style="text-align: justify;">The three steps to train agents are:-</p>
+                  <ul>
+                    <li>Import PrimaVita (First life) class from envs.prima_vita</li>
+                    <li>Instantiate the PrimaVita class</li>
+                    <li>Call the run( ) method on the PrimaVita object</li>
+                  </ul>
+
+                  <p style="text-align: justify;">The above default setting will allow you to train the agents in ‘bot’ mode which means you will not be able to see the environment while training. In case, you want to see the environment throughout the training you just need to change the mode to ‘human’. The snippet belows shows the code for 'human' mode.</p>
+                  <pre class="code code--block">
+                    <code>
+                        from pygeneses.envs.prima_vita import PrimaVita
+                        rl_model = PrimaVita(mode="human")
+                        rl_model.run()
+                    </code>
+                  </pre>
+
+                </li>
+
+                <li>
+
+                  <h5 class="section__title">Example 2</h5>
+                  <p style="text-align: justify;"><strong><em>Note:</em></strong> Changing the default hyper parameters</p>
+
+                  <pre class="code code--block">
+                    <code>
+                      from pygeneses.envs.prima_vita import PrimaVita
+                      params_dic = {"initial_energy": 300, "model_updates": 25}
+                      rl_model = PrimaVita(params_dic=params_dic)
+                      rl_model.run()
+                    </code>
+                  </pre>
+
+                  <p style="text-align: justify;">You just have to pass a dictionary with keys as the name of the hyperparameter (here the initial energy of agents and the time in ticks after which model will be updated are changed) and the values as the value you want to specify. For a more detailed list of available hyperparameters refer to the official docs.</p>
+
+                </li>
+
+              </ol>
+              
+            </li>
+
+            <li>
+
+              <h4 class="section__title">Hypertune</h4>
+
+              <ol style="list-style-type: lower-alpha;">
+
+                <li>
+
+                  <h5 class="section__title">Grid Search</h5>
+                  <p style="text-align: justify;">This takes in a pool of hyperparameter values as input and trains the model with all the possible combinations of these values. This is useful when you want to try out different values of a hyperparameter or group of hyperparameters.</p>
+                  <p style="text-align: justify;">Following is a snippet of code for applying a grid search over pool of hyperparameters using hypertune:-</p>
+                  <pre class="code code--block">
+                    <code>
+                      from pygeneses.hypertune import HyperTune
+
+                      tuner = HyperTune(model_class='PrimaVita',
+                      hyperparameters=['initial_energy', 'max_age', 'kill_type'],
+                      values=[[100,200], [10, 50, 90], ['difference', 'random']],
+                      stop_at=2000)
+
+                      tuner.hypertuner()
+                    </code>
+                  </pre>
+
+                </li>
+
+                <li>
+
+                  <h5 class="section__title">Randomized Search</h5>
+                  <p style="text-align: justify;">This takes in a pool of hyperparameter values as input and but unlike Grid Search, it trains the model only on a handful of combinations which is a subset of all possible combinations and the combinations in this subset is chosen randomly based on a probability</p>
+                  <p style="text-align: justify;">Following is a snippet of code for applying a randomised search over a pool of hyperparameters using hypertune:-</p>
+                  <pre class="code code--block">
+                    <code>
+                      from pygeneses.hypertune import HyperTune
+
+                      tuner = HyperTune(model_class='PrimaVita',
+                      hyperparameters=['initial_energy', 'max_age', 'kill_type'],
+                      values=[[100,200], [10, 50, 90], ['difference', 'random']],
+                      stop_at=2000, randomize_percent=0.4)
+
+                      tuner.hypertuner()
+                    </code>
+                  </pre>
+
+                </li>
+
+              </ol>
+
+            </li>
+
+          </ol>
 
         </section>
 
@@ -232,24 +349,6 @@
               a = 2;
               </code>
               </pre>
-
-        </section>
-
-        <section class="js-section">
-
-          <h3 class="section__title">Strings</h3>
-            <p>simC code:</p>
-            <pre class="code code--block">
-            <code>
-            var a = "Hello"
-            </code>
-            </pre>
-            <p>C code:</p>
-            <pre class="code code--block">
-            <code>
-            char* a = "Hello";
-            </code>
-            </pre>
 
         </section>
 

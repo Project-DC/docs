@@ -35,6 +35,7 @@
           <li class="js-btn">Use cases</li>
           <li class="js-btn">Installation</li>
           <li class="js-btn">About packages</li>
+          <li class="js-btn">Agents</li>
           <li class="js-btn">Examples</li>
           <li class="js-btn">Classes</li>
           <li class="js-btn">Highlights</li>
@@ -187,6 +188,143 @@
             </li>
 
           </ol>
+
+        </section>
+
+        <section class="js-section">
+
+          <h3 class="section__title">Agents</h3>
+
+          <img src="images/player.png" style="display: block; margin: 0 auto;">
+
+          <p style="text-align: justify;">Meet ‘100-456’ an agent belonging to Prima vita species. In this
+            section we will look at how this or any other agent interacts with food particles and other
+            agents in the Prima Vita environment.</p>
+
+          <ul>
+
+            <li>
+              <h4 class="section__title">States</h4>
+              <p style="text-align: justify;">The state of an agent can be described as the experiences of
+                the agent at a particular time step in the environment. The state has 3 components - (1)
+                distance vectors to food particles within a fixed radius, (2) distance vectors to other
+                agents and their gender within the same radius, and (3) the energy of the agent at the
+                current time step. The state is padded to a fixed length before being passed to the neural network.
+
+              </p>
+            </li>
+            <li>
+              <h4 class="section__title">Actions and reward</h4>
+              <p style="text-align: justify;">Actions are what the agent chooses to do after experiencing a
+                particular state. An agent in the Prima Vita environment can choose form 13 different actions:-
+              </p>
+
+              <table id="customers">
+
+                <tr>
+                  <th>S.No</th>
+                  <th>Action</th>
+                  <th>Reward</th>
+                </tr>
+
+                <tr>
+                  <td>01</td>
+                  <td>Move left</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>02</td>
+                  <td>Move right</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>03</td>
+                  <td>Move up</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>04</td>
+                  <td>Move down</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>05</td>
+                  <td>Move up then left (North west)</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>06</td>
+                  <td>Move up then right (North east)</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>07</td>
+                  <td>Move down then left (South east)</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>08</td>
+                  <td>Move down then right (South west)</td>
+                  <td>-2</td>
+                </tr>
+
+                <tr>
+                  <td>09</td>
+                  <td>Stay at one place</td>
+                  <td>-4 (decays to -1)</td>
+                </tr>
+
+                <tr>
+                  <td>10</td>
+                  <td>Food ingestion</td>
+                  <td>initial_energy / current_energy</td>
+                </tr>
+
+                <tr>
+                  <td>11</td>
+                  <td>Asexual reproduction</td>
+                  <td>initial_energy / current_energy</td>
+                </tr>
+
+                <tr>
+                  <td>12</td>
+                  <td>Sexual reproduction</td>
+                  <td>initial_energy / current_energy</td>
+                </tr>
+
+                <tr>
+                  <td>13</td>
+                  <td>Fighting</td>
+                  <td>-10</td>
+                </tr>
+
+              </table>
+
+              <p style="text-align: justify;"><strong><u>Disclaimer</u>:</strong> The current implementation of
+                sexual reproduction and fighting are done in a way that if an agent takes any of these actions then and
+                another agent (of other gender in case of sexual reproduction or any gender in case of
+                fighting) is present in its radius then the action is completed successfully without the
+                consent of the other agent. We (the developers) of PyGeneses do not promote non-consensual
+                sex and fighting, this approach is taken here only for the sake of simplicity.</p>
+            </li>
+            <li>
+              <h4 class="section__title">Log files</h4>
+              <p style="text-align: justify;">Log files contain information about every action that an agent
+                takes throughout its lifetime. When an agent dies all that information is dumped into the log file.
+                This also contains the players initial x-y coordinates in the environment and the id and time of
+                birth or parent(s). The log file can be used to study the behaviour of the agents using VitaBoard.
+                The name of a log file is in the following format: time of birth-unique id.npy (now you know why
+                the agent was named 100-456.npy).
+              </p>
+            </li>
+          </ul>
 
         </section>
 
